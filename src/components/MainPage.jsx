@@ -65,33 +65,14 @@ class MainPage extends React.Component {
   handleAuthorSelect = (authorName) => {
     const index = this.state.authors.map((e) => e.name).indexOf(authorName);
     this.setState({ selectedAuthor: authorName, activeImageIndex: index });
-
-    // update activeImageIndex (this is state), based on selectedAuthor's index
   };
 
-  // authorPage = () => {
-  //   const newPage = window.open(this.state.link, "_blank");
-  //   if (newWindow) newWindow.opener = null;
-  // };
-  // onClick={() => authorPage()}
-
   handleGoodreadsPage = () => {
-    // only going to use state, not set here
-    //  authors index and active image index
-    // this.state.authors({ activeImageIndex: index });
-
-    // let localActiveImageIndex = this.state.activeImageIndex;
-    // let localAuthorsArray = this.state.authors;
-    // let goodreadsId = localAuthorsArray[localActiveImageIndex].goodreadsId;
-
     let goodreadsId =
       this.state.authors[this.state.activeImageIndex].goodreadsId;
 
     let url = "https://www.goodreads.com/author/show/" + goodreadsId;
     window.open(url, "_blank");
-
-    // const url = "https://www.google/show/author";
-    // window.open("https://www.goodreads.com/author/show/" + {this.state.authors.name.goodreadsId}
   };
 
   render() {
@@ -125,7 +106,6 @@ class MainPage extends React.Component {
           </Row>{" "}
           <Row>
             <Col xs lg="7"></Col>
-            {/* <Col xs lg="1"></Col> */}
             <Col xs lg="2">
               <h6>(Click the picture.)</h6>
             </Col>
@@ -193,12 +173,8 @@ class MainPage extends React.Component {
               <Button
                 variant="dark"
                 size="sm"
-                // onClick={() => {"https://www.goodreads.com/" + {this.state.authors.name}}
                 onClick={this.handleGoodreadsPage}
                 disabled={this.state.activeImageIndex == -1}
-                // window.open(authorPage, "_blank")}
-                // href="https://www.goodreads.com/"
-                // target="_blank"
               >
                 Learn more.
               </Button>
